@@ -1,4 +1,4 @@
-function Marvel({ onAddToCart }) {
+function Marvel({ onAddToCart, onNavigate }) {
     try {
         const [selectedMonth, setSelectedMonth] = React.useState('all');
         const marvelComics = window.MOCK_COMICS.filter(comic => comic.publisher === 'Marvel');
@@ -50,6 +50,7 @@ function Marvel({ onAddToCart }) {
                                     key={comic.id} 
                                     comic={comic} 
                                     onAddToCart={onAddToCart}
+                                    onNavigate={onNavigate}
                                 />
                             ))}
                         </div>

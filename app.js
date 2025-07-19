@@ -2,6 +2,7 @@ function App() {
     try {
         const [currentPage, setCurrentPage] = React.useState('home');
         const [cartCount, setCartCount] = React.useState(0);
+        const [loginMessage, setLoginMessage] = React.useState('');
 
         React.useEffect(() => {
             updateCartCount();
@@ -16,8 +17,13 @@ function App() {
             updateCartCount();
         };
 
-        const handleNavigate = (page) => {
+        const handleNavigate = (page, message = '') => {
             setCurrentPage(page);
+            if (message) {
+                setLoginMessage(message);
+            } else {
+                setLoginMessage('');
+            }
         };
 
         const renderCurrentPage = () => {
@@ -27,15 +33,17 @@ function App() {
                 case 'catalog':
                     return <Catalog />;
                 case 'marvel':
-                    return <Marvel onAddToCart={handleAddToCart} />;
+                    return <Marvel onAddToCart={handleAddToCart} onNavigate={handleNavigate} />;
                 case 'dc':
-                    return <DC onAddToCart={handleAddToCart} />;
+                    return <DC onAddToCart={handleAddToCart} onNavigate={handleNavigate} />;
                 case 'cart':
                     return <Cart onNavigate={handleNavigate} />;
                 case 'profile':
                     return <Profile onNavigate={handleNavigate} />;
                 case 'login':
-                    return <Login onNavigate={handleNavigate} />;
+                    return <Login onNavigate={handleNavigate} loginMessage={loginMessage} />;
+                case 'search':
+                    return <Search onNavigate={handleNavigate} onAddToCart={handleAddToCart} />;
                 default:
                     return <Home onNavigate={handleNavigate} onAddToCart={handleAddToCart} />;
             }

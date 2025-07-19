@@ -1,4 +1,4 @@
-function DC({ onAddToCart }) {
+function DC({ onAddToCart, onNavigate }) {
     try {
         const [selectedMonth, setSelectedMonth] = React.useState('all');
         const dcComics = window.MOCK_COMICS.filter(comic => comic.publisher === 'DC');
@@ -50,6 +50,7 @@ function DC({ onAddToCart }) {
                                     key={comic.id} 
                                     comic={comic} 
                                     onAddToCart={onAddToCart}
+                                    onNavigate={onNavigate}
                                 />
                             ))}
                         </div>

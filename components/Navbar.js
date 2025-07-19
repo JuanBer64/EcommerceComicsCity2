@@ -15,6 +15,17 @@ function Navbar({ currentPage, setCurrentPage, cartCount }) {
             { id: 'profile', label: 'Perfil', icon: 'fas fa-user', requireAuth: true }
         ];
 
+        const [showSearch, setShowSearch] = React.useState(false);
+
+        const handleSearch = (term) => {
+            if (term && term.trim()) {
+                // Pasar el término de búsqueda directamente a la página de búsqueda
+                window.currentSearchTerm = term.trim();
+                setCurrentPage('search');
+                setShowSearch(false);
+            }
+        };
+
         const handleNavClick = (item) => {
             if (item.requireAuth && !user) {
                 setCurrentPage('login');
@@ -42,6 +53,14 @@ function Navbar({ currentPage, setCurrentPage, cartCount }) {
                         </div>
                         
                         <div className="hidden md:flex items-center space-x-6">
+                            <button
+                                onClick={() => setShowSearch(!showSearch)}
+                                className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            >
+                                <i className="fas fa-search mr-1"></i>
+                                Buscar
+                            </button>
+
                             {navItems.map(item => (
                                 <button
                                     key={item.id}
@@ -88,6 +107,18 @@ function Navbar({ currentPage, setCurrentPage, cartCount }) {
                             </button>
                         </div>
                     </div>
+
+                    {showSearch && (
+                        <div className="border-t bg-gray-50">
+                            <div className="max-w-7xl mx-auto px-4 py-4">
+                                <SearchBar 
+                                    onSearch={handleSearch}
+                                    onToggleFilters={() => {}}
+                                    showFilters={false}
+                                />
+                            </div>
+                        </div>
+                    )}
                 </div>
             </nav>
         );

@@ -1,18 +1,33 @@
 {
-  "name": "ia-2-sitionweb-ecommerce",
+  "name": "comics-city",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "E-commerce de preventas de cómics Marvel y DC",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "python -m http.server 8000",
+    "serve": "http-server -p 8000",
+    "dev": "live-server --port=8000"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bootstrap": "^5.3.6",
-    "bootstrap-icons": "^1.13.1",
-    "express": "^5.1.0",
-    "react-router-dom": "^7.6.2"
-  }
+  "keywords": [
+    "comics",
+    "marvel",
+    "dc",
+    "ecommerce",
+    "preventas",
+    "react"
+  ],
+  "author": "Comics City Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/comics-city.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/comics-city/issues"
+  },
+  "homepage": "https://github.com/tu-usuario/comics-city#readme"
 }

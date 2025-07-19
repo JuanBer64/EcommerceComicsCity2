@@ -1,4 +1,4 @@
-function Login({ onNavigate }) {
+function Login({ onNavigate, loginMessage }) {
     try {
         const [isLogin, setIsLogin] = React.useState(true);
         const [formData, setFormData] = React.useState({
@@ -57,6 +57,15 @@ function Login({ onNavigate }) {
                     </div>
 
                     <div className="bg-white rounded-lg shadow-md p-8">
+                        {loginMessage && (
+                            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                                <div className="flex items-center">
+                                    <i className="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                    <p className="text-red-700 font-medium">{loginMessage}</p>
+                                </div>
+                            </div>
+                        )}
+                        
                         <div className="flex mb-6">
                             <button
                                 onClick={() => setIsLogin(true)}

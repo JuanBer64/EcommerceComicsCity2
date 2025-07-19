@@ -1,8 +1,15 @@
-function ComicCard({ comic, onAddToCart }) {
+function ComicCard({ comic, onAddToCart, onNavigate }) {
     try {
         const [isAdding, setIsAdding] = React.useState(false);
 
         const handleAddToCart = async () => {
+            // Verificar si el usuario está autenticado
+            const currentUser = StorageUtils.getCurrentUser();
+            if (!currentUser) {
+                onNavigate('login', 'Debes iniciar sesión para agregar productos al carrito');
+                return;
+            }
+
             setIsAdding(true);
             const success = StorageUtils.addToCart(comic);
             

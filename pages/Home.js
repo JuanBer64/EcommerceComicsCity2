@@ -62,6 +62,7 @@ function Home({ onNavigate, onAddToCart }) {
                                     key={comic.id} 
                                     comic={comic} 
                                     onAddToCart={onAddToCart}
+                                    onNavigate={onNavigate}
                                 />
                             ))}
                         </div>

@@ -23,7 +23,7 @@ Comics City es una aplicación web de e-commerce especializada en preventas de c
 
 ## 📁 Estructura del Proyecto
 
-
+```
 comics-city/
 ├── index.html              # Página principal
 ├── styles.css              # Estilos personalizados
@@ -46,7 +46,7 @@ comics-city/
 │   ├── mockData.js        # Datos de prueba
 │   └── storage.js         # Gestión de localStorage
 └── README.md              # Documentación
-
+```
 
 ## 🔧 Instalación y Configuración
 
